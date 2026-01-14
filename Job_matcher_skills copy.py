@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
-import nltk
-from nltk.tokenize import word_tokenize
+import re
 from collections import Counter
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -9,7 +8,6 @@ from pathlib import Path
 
 
 # ─── NLTK & Models ───────────────────────────────────────────────────────────
-nltk.download("punkt", quiet=True)
 nltk.download("punkt_tab", quiet=True)
 @st.cache_resource
 def get_embedder():
@@ -71,7 +69,7 @@ jobs = load_jobs()
 @st.cache_data
 def build_skill_vocab():
     text = " ".join(jobs["Job Description"].dropna()).lower()
-    tokens = [t for t in word_tokenize(text) if t.isalpha() and len(t) >= 3]
+    tokens = re.findall(r"[a-z]{3,}", text.lower())
     
     count = Counter(tokens)
     
@@ -253,6 +251,7 @@ if resume_file:
 else:
 
     st.info("Please upload your resume to start matching.")
+
 
 
 
