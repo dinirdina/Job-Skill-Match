@@ -11,7 +11,6 @@ from pathlib import Path
 
 # ─── NLTK & Models ───────────────────────────────────────────────────────────
 nltk.download("punkt", quiet=True)
-nltk.download("punkt_tab", quiet=True)
 embedder = SentenceTransformer("all-MiniLM-L6-v2")
 
 # ─── PAGE CONFIG ─────────────────────────────────────────────────────────────
@@ -248,4 +247,5 @@ if resume_file:
                             st.write(row["Description Preview"])
 
 else:
+
     st.info("Please upload your resume to start matching.")
