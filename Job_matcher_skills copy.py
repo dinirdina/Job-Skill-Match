@@ -34,7 +34,7 @@ st.markdown("---")
 def load_jobs():
     try:
         base = Path(__file__).parent   # folder where your app.py is
-        path = base / "jobstreet_all_job.csv"  # CSV must be beside app.py
+        path = base / "data" / "jobstreet_all_job.csv"
 
         df = pd.read_csv(path)
         df.columns = df.columns.str.strip()
@@ -253,4 +253,5 @@ if resume_file:
 else:
 
     st.info("Please upload your resume to start matching.")
+
 
