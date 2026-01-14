@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import pdfplumber
 import nltk
 from nltk.tokenize import word_tokenize
 from collections import Counter
@@ -253,5 +252,6 @@ if resume_file:
 else:
 
     st.info("Please upload your resume to start matching.")
+
 
 
