@@ -11,7 +11,11 @@ from pathlib import Path
 
 # ─── NLTK & Models ───────────────────────────────────────────────────────────
 nltk.download("punkt", quiet=True)
-embedder = SentenceTransformer("all-MiniLM-L6-v2")
+@st.cache_resource
+def get_embedder():
+    return SentenceTransformer("all-MiniLM-L6-v2")
+
+embedder = get_embedder()
 
 # ─── PAGE CONFIG ─────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -249,3 +253,4 @@ if resume_file:
 else:
 
     st.info("Please upload your resume to start matching.")
+
