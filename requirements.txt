@@ -2,7 +2,5 @@ streamlit
 pandas
 pdfplumber
 nltk
-nltk.tokenize
-collections
-sentence_transformers
-sklearn.metrics.pairwise
+sentence-transformers
+scikit-learn
