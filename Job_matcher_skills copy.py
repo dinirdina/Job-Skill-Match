@@ -239,7 +239,7 @@ if resume_file:
                                 st.caption("No direct skill match (rare)")
 
                         with col2:
-                            st.metric("Match", f"{row['Score %']}%")
+                            st.metric("Match", f"{row['Score %']:.1f}%")
                             st.progress(float(row["Score"]) / 100)
 
 
@@ -251,6 +251,7 @@ if resume_file:
 else:
 
     st.info("Please upload your resume to start matching.")
+
 
 
 
