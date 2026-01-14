@@ -10,6 +10,7 @@ from pathlib import Path
 
 # ─── NLTK & Models ───────────────────────────────────────────────────────────
 nltk.download("punkt", quiet=True)
+nltk.download("punkt_tab", quiet=True)
 @st.cache_resource
 def get_embedder():
     return SentenceTransformer("all-MiniLM-L6-v2")
@@ -252,6 +253,7 @@ if resume_file:
 else:
 
     st.info("Please upload your resume to start matching.")
+
 
 
 
