@@ -1,14 +1,14 @@
 import streamlit as st
 import pandas as pd
 import re
+import pdfplumber
 from collections import Counter
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from pathlib import Path
 
 
-# ─── NLTK & Models ───────────────────────────────────────────────────────────
-nltk.download("punkt_tab", quiet=True)
+# ─── NLTK & Models ───────────────────────────────────────────────────────────)
 @st.cache_resource
 def get_embedder():
     return SentenceTransformer("all-MiniLM-L6-v2")
@@ -251,6 +251,7 @@ if resume_file:
 else:
 
     st.info("Please upload your resume to start matching.")
+
 
 
 
